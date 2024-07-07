@@ -1,0 +1,32 @@
+[package]
+name = "receipt-analyzer"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "local"
+path = "src/bin/local.rs"
+
+[[bin]]
+name = "bootstrap"
+path = "src/bin/lambda.rs"
+
+[dependencies]
+axum = { version = "0.7.5", features = ["macros"] }
+tokio = { version = "1", features = ["full"] }
+lambda_runtime = "0.12.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+aws-config = "1.5.4"
+aws-sdk-bedrockruntime = "1.38.0"
+base64 = "0.22.1"
+image = "0.25.1"
+anyhow = "1.0.86"
+tracing = "0.1.40"
+tracing-subscriber = "0.3"
+itertools = "0.13.0"
+
+[dependencies.lambda_http]
+version = "0.12.0"
+default-features = false
+features = ["apigw_rest"]
